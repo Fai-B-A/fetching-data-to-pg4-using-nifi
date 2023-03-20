@@ -2,10 +2,12 @@
 ## fetching data from a data lake using nifi then insert it to a pg4 database
 # Prequsits
 apache nifi (the version used here is 1.18.0)
+
 postgresql (the version used here is 42.5.0)
+
 a linux system (not mandatory)
 
-### ** everything typed in this page is applying what is learned from "Data Engineering with Python" by Paul Crickard **
+ **everything typed in this page is applying what is learned from "Data Engineering with Python" by Paul Crickard**
 
 First, we need to generate our fake data using the "faker" library in python, the code is:
 ```
