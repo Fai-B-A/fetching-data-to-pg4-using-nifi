@@ -39,9 +39,11 @@ Run your code on the terminal and check if the data generated is in your chosen 
 Launch your pg4admin and make a new database, then create a an empty table to hold the generated data
 
 ![Screenshot pg4Before](https://user-images.githubusercontent.com/85634276/226402905-907143c3-c132-4d07-8ee2-67206d19b763.png)
-![Screenshot pg4Before](https://user-images.githubusercontent.com/85634276/226704981-68e184ce-1207-4374-a45c-f3a02402a0fa.png)
 
 After we set everything up, we will open nifi to set up a data pipeline for fetching data in the specified folder and insert it to postgres's created table
+
+
+##GetFile
 
 going to nifis GUI, drag the "GetFile" processor to your canvas then configure it whats shown in the image below
 
@@ -51,10 +53,14 @@ the GetFile processor will fetch the data found in the input "directory" field. 
 for the "file filter" field, I left it with its default value since I want all the data stored in that directoy to be fetchet but if you want to only fetch data with a certain pattern on their name, then you can enter the specified pattern there.
 
 
+##EvaluateJsonPath
+
 drag the "EvaluateJsonPath" processor to the canvas, change the "Distination" field to "flowfile-attribute", then add new properties that correspondes to the columns we specified in pg4 and the data elements in our faker python program.
 
 ![evaluatejsonpathProcessor](https://user-images.githubusercontent.com/85634276/226697987-f78c7034-b9be-48c0-9dea-6d12672432f0.png)
 
+
+##PutSQL
 
 drag the "PutSQL" processor to the canvas then click on the "create a new service" option on the "JDBC Connection pool" and choose "DBCPConnectionPool"
 ![dbcCreate](https://user-images.githubusercontent.com/85634276/226701844-bb1db0f0-0148-4eb1-bdce-77183f42651d.png)
@@ -76,7 +82,7 @@ we connect the processors together and check if the files got inserted in our ta
 ![screenshot minidatalake process](https://user-images.githubusercontent.com/85634276/226704535-c11e8cca-7b10-4107-a6f3-bcba39a782f8.png)
 ![pg4DB](https://user-images.githubusercontent.com/85634276/226704750-485d147c-aaae-4e38-a2d8-be0e73828794.png)
 
-
+Everything worked successfully which means even when new data goes to the "minifiDataLake" folder, it will automatically move to the specified database.
 
 
 
