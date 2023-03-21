@@ -43,7 +43,7 @@ Launch your pg4admin and make a new database, then create a an empty table to ho
 After we set everything up, we will open nifi to set up a data pipeline for fetching data in the specified folder and insert it to postgres's created table
 
 
-##GetFile
+## GetFile
 
 going to nifis GUI, drag the "GetFile" processor to your canvas then configure it whats shown in the image below
 
@@ -53,14 +53,14 @@ the GetFile processor will fetch the data found in the input "directory" field. 
 for the "file filter" field, I left it with its default value since I want all the data stored in that directoy to be fetchet but if you want to only fetch data with a certain pattern on their name, then you can enter the specified pattern there.
 
 
-##EvaluateJsonPath
+## EvaluateJsonPath
 
 drag the "EvaluateJsonPath" processor to the canvas, change the "Distination" field to "flowfile-attribute", then add new properties that correspondes to the columns we specified in pg4 and the data elements in our faker python program.
 
 ![evaluatejsonpathProcessor](https://user-images.githubusercontent.com/85634276/226697987-f78c7034-b9be-48c0-9dea-6d12672432f0.png)
 
 
-##PutSQL
+## PutSQL
 
 drag the "PutSQL" processor to the canvas then click on the "create a new service" option on the "JDBC Connection pool" and choose "DBCPConnectionPool"
 ![dbcCreate](https://user-images.githubusercontent.com/85634276/226701844-bb1db0f0-0148-4eb1-bdce-77183f42651d.png)
