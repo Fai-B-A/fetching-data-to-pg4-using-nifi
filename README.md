@@ -45,16 +45,16 @@ Start nifi in your browser to set up a data pipeline for fetching data in the pr
 
 ## GetFile
 
-going to nifis GUI, drag the "GetFile" processor to your canvas then configure it to match what is shown in the image below
+going to nifis GUI, drag the "GetFile" processor to your canvas then configure it to match what is shown in the image below.
 
 ![getfileProcessor](https://user-images.githubusercontent.com/85634276/226692631-62511183-639a-4046-a9b8-a6c0cbf526c3.png)
 
-The GetFile processor will fetch the data found in the "input directory" field. In the "input directory" field, put the path of the folder holding the generated data. For the "file filter" field, I left it with its default value since I want all data stored in that directoy to be fetched but if you want to only fetch data with a certain pattern whithin their name, then you can enter the specified pattern there.
+The "GetFile" processor will fetch the data found in the "input directory" field. In the "input directory" field, put the path of the folder holding the generated data. For the "file filter" field, I left it with its default value since I want all data stored in that directoy to be fetched but if you want to only fetch data with a certain pattern whithin their name, then you can enter the specified pattern there.
 
 
 ## EvaluateJsonPath
 
-Drag the "EvaluateJsonPath" processor to the canvas and choose the "flowfile-attribute" option in the "Distination" field, then add new properties that correspondes to the columns we specified in pg4 and the data elements in our faker python program with their values.
+Drag the "EvaluateJsonPath" processor to the canvas and choose the "flowfile-attribute" option in the "Destination" field, then add new properties that correspondes to the columns we specified in pg4 and the data elements in our faker python program with their values.
 
 ![evaluatejsonpathProcessor](https://user-images.githubusercontent.com/85634276/226697987-f78c7034-b9be-48c0-9dea-6d12672432f0.png)
 
@@ -69,7 +69,7 @@ Then configure the DBCP as shown below.
 ![dbcDetails](https://user-images.githubusercontent.com/85634276/226702055-3850f4eb-cd87-48f4-a039-8ee4fd0a12de.png)
 
 On the first field, you need to enter your pg4admins link with the database which has the table that you want to access.
-You need to enter the path of which the postgres is stored on the third field (postgres should be stored whithin the nifi directory).
+On the "Database Drivers Location(s)" field, you need to enter the path of which the postgres is stored (postgres should be stored whithin the nifi directory).
 
 After configuring the JDBC, change the following fields under the "PutSQL" processor as shown below.
 
